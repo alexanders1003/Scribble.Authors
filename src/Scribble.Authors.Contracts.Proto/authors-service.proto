@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option csharp_namespace = "Scribble.Authors.Contracts.Proto";
+
+import "authors-models.proto";
+
+package Scribble.Authors.Contracts.Proto;
+
+service AuthorsProtoService {
+  rpc GetAuthorById (GetAuthorByIdRequest) returns (AuthorModel);
+  rpc GetPagedAuthors (GetPagedAuthorsRequest) returns (GetPagedAuthorsResponse);
+  rpc ExistsById (ExistsByAuthorIdRequest) returns (ExistsByAuthorIdResponse);
+}
+
+message GetAuthorByIdRequest {
+  string Id = 1;
+}
+
+message GetPagedAuthorsRequest {
+  int32 PageIndex = 1;
+  int32 PageSize = 2;
+}
+
+message GetPagedAuthorsResponse {
+  repeated AuthorModel Models = 1;
+}
+
+message ExistsByAuthorIdRequest {
+  string Id = 1;
+}
+
+message ExistsByAuthorIdResponse {
+  bool Status = 1;
+}

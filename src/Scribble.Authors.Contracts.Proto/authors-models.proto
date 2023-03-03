@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option csharp_namespace = "Scribble.Authors.Contracts.Proto";
+
+package Scribble.Authors.Contracts.Proto;
+
+message AuthorModel {
+  string Id = 1;
+  string IdentityId = 2;
+  string FirstName = 3;
+  string LastName = 4;
+}
